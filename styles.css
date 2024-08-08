@@ -1,17 +1,46 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #6b6b6b;
     text-align: center;
     padding: 20px;
 }
 
 .container {
-    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 700px; /* Aumentato per accomodare entrambe le sezioni */
     margin: auto;
-    background: white;
-    padding: 20px;
+    margin-top: 220px; /* Ridotto per avvicinare la container alla parte superiore */
+    background: rgb(240, 240, 240);
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.main-content {
+    flex: 1;
+    margin-right: 20px; /* Spazio tra le due colonne */
+}
+
+.history {
+    flex: 0 0 75px; /* Larghezza fissa per lo storico */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;
+    display: none; /* Nasconde inizialmente */
+    font-size: 14px;
+}
+
+.story {
+    background-color: #fa4e4e;
+    border-radius: 5px;
+}
+
+ul {
+    position: relative;
+    left: -20px;
+    list-style-type: none;
 }
 
 h1, h2 {
@@ -30,7 +59,7 @@ input, button {
 }
 
 button {
-    background-color: #28a745;
+    background-color: #28a746e3;
     color: white;
     border: none;
     cursor: pointer;
@@ -38,7 +67,7 @@ button {
 }
 
 .b-reset {
-    background-color: rgb(224, 1, 1);
+    background-color: rgba(224, 1, 1, 0.842);
 }
 
 .b-reset:hover {
@@ -50,8 +79,8 @@ button:hover {
 }
 
 #alert {
-    background-color: #ff4d4d;
-    color: white;
+    background-color: #fdfa25ea;
+    color: rgb(0, 0, 0);
     padding: 10px;
     margin-top: 20px;
     border-radius: 5px;
