@@ -3,20 +3,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const creditiRimanentiElement = document.getElementById('creditiRimanenti');
     const dashboard = document.getElementById('dashboard');
     const alertDiv = document.getElementById('alert');
+    const iniziaButton = document.getElementById('inizia');
+    const resetButton = document.getElementById('reset');
 
     // Recupera i crediti salvati in LocalStorage
     const creditiSalvati = localStorage.getItem('creditiRimanenti');
     if (creditiSalvati) {
         creditiRimanentiElement.innerText = creditiSalvati;
         dashboard.style.display = 'block';
-        document.getElementById('inizia').disabled = true;
+        iniziaButton.disabled = true;
 
-        if (creditiSalvati <= 0) {
+        if (creditiSalvati < 0) {  // Modifica qui: alert solo se i crediti sono minori di 0
             alertDiv.style.display = 'block';
         }
     }
 
-    document.getElementById('inizia').addEventListener('click', function() {
+    iniziaButton.addEventListener('click', function() {
         const creditiIniziali = parseInt(creditiInizialiInput.value);
         if (isNaN(creditiIniziali) || creditiIniziali <= 0) {
             alert('Inserisci un numero valido di crediti.');
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         creditiRimanentiElement.innerText = creditiIniziali;
         dashboard.style.display = 'block';
-        this.disabled = true;
+        iniziaButton.disabled = true;
     });
 
     document.getElementById('aggiornaCrediti').addEventListener('click', function() {
@@ -42,8 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         creditiRimanenti -= creditiSpesi;
 
-        if (creditiRimanenti <= 0) {
-            creditiRimanenti = 0;
+        if (creditiRimanenti < 0) {  // Modifica qui: alert solo se i crediti sono minori di 0
             alertDiv.style.display = 'block';
             playAlertSound();
         } else {
@@ -55,14 +56,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Logica per il pulsante di reset
-    document.getElementById('reset').addEventListener('click', function() {
-        localStorage.removeItem('creditiIniziali');
-        localStorage.removeItem('creditiRimanenti');
+    resetButton.addEventListener('click', function() {
+        localStorage.clear(); // Rimuove tutti gli elementi salvati nel LocalStorage
         creditiInizialiInput.value = '';
         creditiRimanentiElement.innerText = '';
         dashboard.style.display = 'none';
         alertDiv.style.display = 'none';
-        document.getElementById('inizia').disabled = false;
+        iniziaButton.disabled = false;
     });
 });
 
