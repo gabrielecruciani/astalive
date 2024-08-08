@@ -8,24 +8,33 @@
 </head>
 <body>
     <div class="container">
-        <h1>Asta Live Alert</h1>
-        <label for="creditiIniziali">Inserisci i tuoi crediti iniziali:</label>
-        <input class="credits" type="number" id="creditiIniziali" placeholder="100" min="1">
-        <button id="inizia">Inizia</button>
+        <div class="main-content">
+            <div id="inizia">
+                <h1>Asta Live Alert</h1>
+                <label for="creditiIniziali">Inserisci i tuoi crediti iniziali:</label>
+                <input class="credits" type="number" id="creditiIniziali" placeholder="100" min="1">
+                <button>Inizia</button>
+            </div>
 
-        <div id="dashboard" style="display: none;">
-            <h2>Crediti rimanenti: <span id="creditiRimanenti"></span></h2>
-            <label for="creditiSpesi">Inserisci crediti spesi:</label>
-            <input class="credits" type="number" id="creditiSpesi" placeholder="10" min="0">
-            <button id="aggiornaCrediti">Aggiorna Crediti</button>
+            <div id="dashboard" style="display: none;">
+                <h2>Rimanenti: <span id="creditiRimanenti"></span></h2>
+                <label for="creditiSpesi">Inserisci crediti spesi:</label>
+                <input class="credits" type="number" id="creditiSpesi" placeholder="10" min="0">
+                <button id="aggiornaCrediti">Aggiorna Crediti</button>
+            </div>
+
+            <div id="alert" style="display: none;">
+                <p>Attenzione! Crediti insufficienti!</p>
+            </div>
+
+            <!-- Pulsante di reset -->
+            <button class="b-reset" id="reset">Reset</button>
         </div>
-
-        <div id="alert" style="display: none;">
-            <p>Attenzione! Crediti insufficienti!</p>
+        <div class="history">
+            <div class="story">
+                <ul id="listaStorico"></ul>
+            </div>
         </div>
-
-        <!-- Pulsante di reset -->
-        <button class="b-reset" id="reset">Reset</button>
     </div>
 
     <script src="script.js"></script>
