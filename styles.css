@@ -10,7 +10,7 @@ body {
     justify-content: space-between;
     max-width: 700px; /* Aumentato per accomodare entrambe le sezioni */
     margin: auto;
-    margin-top: 220px; /* Ridotto per avvicinare la container alla parte superiore */
+    margin-top: 100px; /* Ridotto per avvicinare la container alla parte superiore */
     background: rgb(240, 240, 240);
     padding: 30px;
     border-radius: 10px;
